@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>S S Nadwi Academy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#0d6efd;
+  --secondary:#198754;
+  --dark:#0b3d91;
+  --light:#f5f7fb;
+  --radius:16px;
+  --container-max: 1400px;
+  --container-padding: clamp(20px, 4vw, 40px);
+  --radius: 16px;
+  --gap-lg: 40px;
+  --text-lg: clamp(1.1rem, 1.5vw, 1.25rem);
+  --heading-xl: clamp(2rem, 4vw, 2.75rem);
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--light);
+  color:#333;
+  line-height:1.7;
+}
+
+/* ===== HEADER ===== */
+.hero-header{
+  position:relative;
+  min-height:10vh;
+    background:
+    linear-gradient(50deg,rgba(200,61,100,.99),rgba(250,105,84,.85)),center/cover no-repeat;
+  color:#fff;
+  display:flex;
+  align-items:top;
+}
+
+.hero-content{
+  width:100%;
+  position:relative;
+  z-index:2;
+}
+
+.hero-grid{
+  max-width:1400px;
+  margin:auto;
+  padding:0 5px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:30px;
+}
+
+.hero-left h1{
+  font-size:35px;
+  margin:0;
+}
+
+.tagline{
+  font-size:16px;
+  opacity:.95;
+  margin-top:10px;
+}
+
+.hero-logo img{
+  height:150px;
+  filter:drop-shadow(0 10px 25px rgba(0,0,0,.4));
+}
+
+.hero-right{
+  text-align:right;
+  font-size:35px;
+}
+
+/*.hero-wave{
+  position:absolute;
+  bottom:-2px;
+  left:0;
+  width:100%;
+  height:100px;
+  color:#0b3d91;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23f5f7fb' d='M0,60 C120,80 240,20 360,30 480,40 600,80 720,70 840,60 960,20 1080,25 1200,30 1320,50 1440,40 L1440,100 L0,100 Z'/%3E%3C/svg%3E") no-repeat bottom/cover;
+}
+*/
+/* ===== NAV ===== */
+nav{
+  background:#0b3d91;
+  position:sticky;
+  top:5;
+  z-index:100;
+  box-shadow:0 5px 20px rgba(100,50,0,.99);
+}
+nav .nav-wrap{
+  max-width:1400px;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+}
+nav button{
+  border:none;
+  background:none;
+  padding:16px 26px;
+  font-size:16px;
+  cursor:pointer;
+  color:#fff;
+}
+nav button.active,
+nav button:hover{color:#fff;border-bottom:3px solid var(--primary);}
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--container-padding);
+}
+
+/* ===== TABS ===== */
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* ===== HERO ===== */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: var(--gap-lg);
+  align-items: center;
+}
+
+/* Typography */
+.hero h2 {
+  font-size: var(--heading-xl);
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Hero Image */
+.hero-visual {
+  position: relative;
+  min-height: 320px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background:  center/cover;
+}
+
+
+
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    order: -1;
+    min-height: 240px;
+  }
+}
+
+/* ===== FEATURE CARDS ===== */
+.features{
+  margin-top:70px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.features .card{
+  border-radius:var(--radius);
+  padding:35px 30px;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  min-height:220px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:.35s ease;
+}
+.features .card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.18),transparent);
+}
+.features .card:hover{transform:translateY(-10px) scale(1.02);}
+.features h3{
+  font-size:24px;
+  margin:0 0 10px;
+  position:relative;
+}
+.features .quote{
+  font-size:16px;
+  opacity:.95;
+  font-style:italic;
+  position:relative;
+}
+.features .icon{
+  font-size:46px;
+  margin-bottom:15px;
+  position:relative;
+}
+.digital{background:#0d6efd;}
+.library{background:#6f42c1;}
+.islamic{background:#198754;}
+.research{background:#ffc107;color:#5c4300;}*/
+
+/* ===== QUOTE SLIDER ===== */
+.quotes{
+  margin:80px 0;
+  background:#fff;
+  border-radius:var(--radius);
+  padding:40px;
+}
+.quote{font-size:20px;text-align:center;font-style:italic;}*/
+/* ===== FEATURE CARDS (MODERN) ===== */
+.features{
+  margin-top:80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:32px;
+}
+
+.features .card{
+  border-radius:22px;
+  padding:36px 32px;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  min-height:240px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  backdrop-filter: blur(6px);
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.features .card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.25),
+    transparent 60%
+  );
+}
+
+.features .card:hover{
+  transform:translateY(-14px) scale(1.04);
+  box-shadow:0 30px 60px rgba(0,0,0,.25);
+}
+
+/* ICON */
+.features .icon{
+  font-size:54px;
+  margin-bottom:18px;
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,.3));
+}
+
+/* TEXT */
+.features h3{
+  font-size:26px;
+  margin:0 0 10px;
+  letter-spacing:.3px;
+}
+
+.features .quote{
+  font-size:16px;
+  opacity:.95;
+  font-style:italic;
+  line-height:1.5;
+}
+
+/* CARD COLORS (GRADIENTS) */
+.digital{
+  background:linear-gradient(135deg,#0d6efd,#4dabf7);
+}
+
+.library{
+  background:linear-gradient(135deg,#6f42c1,#9775fa);
+}
+
+.islamic{
+  background:linear-gradient(135deg,#198754,#51cf66);
+}
+
+.research{
+  background:linear-gradient(135deg,#ffc107,#ffd43b);
+  color:#4d3b00;
+}
+
+
+/* ===== RECENT UPDATES – ONE LINE ONLY ===== */
+
+.recent {
+  margin:40px 0;
+  padding:30px;
+  background:#f4f6fb;
+  border-radius:16px;
+}
+
+.recent h3{
+  text-align:center;
+  font-size:26px;
+  margin-bottom:20px;
+  color:#083e8c;
+}
+
+/* FORCE ONE LINE */
+.recent-list{
+  display:flex;
+  flex-wrap:nowrap;   /* 🔴 KEY */
+  gap:20px;
+}
+
+/* BOX */
+.recent-item{
+  width:300px;
+  flex-shrink:0;
+  background:#fff;
+  padding:22px;
+  border-radius:14px;
+  border-top:5px solid #0d6efd;
+}
+
+.recent-item.article{border-top-color:#198754;}
+.recent-item.research{border-top-color:#ffc107;}
+
+.recent-item h4{
+  margin:10px 0;
+  font-size:18px;
+}
+
+.recent-item p{
+  color:#555;
+}
+
+.recent-item a{
+  font-weight:600;
+  text-decoration:none;
+}
+<!-- ===== EBOOKS CSS ===== -->
+<style>
+.ebook-tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  margin-bottom:30px;
+}
+.ebook-tabs button{
+  border:none;
+  background:#e9eefb;
+  padding:12px 18px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.ebook-tabs button:hover{
+  background:var(--primary);
+  color:#fff;
+}
+.ebook-tabs button.active{
+  background:var(--primary);
+  color:#fff;
+}
+.ebook-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  margin-bottom:40px;
+}
+.book{
+  background:#fff;
+  border-radius:var(--radius);
+  padding:20px;
+  text-align:center;
+  transition:0.3s;
+}
+.book:hover{
+  transform:scale(1.03);
+}
+.book img{max-height:180px;margin-bottom:15px;}
+.book a{display:inline-block;margin-top:10px;color:var(--primary);}
+@media(max-width:600px){
+  .ebook-tabs{
+    overflow-x:auto;
+  }
+}
+</style>
+
+<style>
+/* ===== ARTICLES ===== */
+.articles-layout{
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:40px;
+}
+.article-list{
+  background:#fff;
+  padding:20px;
+  border-radius:var(--radius);
+}
+.article-list input{
+  width:100%;
+  padding:10px;
+  margin-bottom:15px;
+}
+.article-list li{margin-bottom:10px;}
+.article-box{
+  background:#fff;
+  padding:40px;
+  border-radius:var(--radius);
+}
+.article-box img{max-width:260px;float:left;margin:0 25px 15px 0;border-radius:12px;}
+.article-box h2{text-align:center;}
+.urdu{
+  direction:rtl;
+  font-family:'Noto Nastaliq Urdu',serif;
+  line-height:2.6;
+}
+
+
+
+/* ===== FOOTER ===== */
+footer{
+  background:#0b3d91;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;}
+  .articles-layout{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero-header">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-grid">
+      
+      <div class="hero-left">
+        <h1>S S Nadwi Academy, Asthawan</h1>
+        <p class="tagline">
+          Digital Library • Islamic Scholarship • Research & Manuscripts
+        </p>
+      </div>
+
+      <div class="hero-logo">
+        <img src="logo1.png" alt="Academy Logo">
+      </div>
+
+      <div class="hero-right urdu">
+        ایس ایس ندوی اکیڈمی، استھانواں
+      </div>
+
+    </div>
+  </div>
+
+  <div class="hero-wave"></div>
+</header>
+<nav>
+  <div class="nav-wrap">
+    <button class="tab-btn active" onclick="openTab('home',this)">Home</button>
+    <button class="tab-btn active" onclick="openTab('ebooks',this)">E‑Books</button>
+    <button class="tab-btn" onclick="openTab('articles',this)">Articles</button>
+    <button class="tab-btn" onclick="openTab('contact',this)">Contact</button>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- HOME -->
+<section id="home" class="tab-content active">
+<div class="hero">
+      <h2>Welcome to S S Nadwi Academy</h2>
+<div class="hero-right urdu"text-align:right;
+  font-size:35px;>
+<h2 style="text-align: right; font-size: 25px; direction: rtl;">
+ایس ایس ندوی اکیڈمی، استھانواں میں آپ کا استقبال ہے
+</h2>
+         
+     </div>
+          <p>A modern digital library featuring books, manuscripts, articles and research related to Islamic thought and scholarship.</p>
+    <p style="text-align: right; font-size: 16px; direction: rtl; font-family: 'Noto Nastaliq Urdu', serif;">
+اسلامی فکر اور علمی روایت سے متعلق کتب، مخطوطات، مضامین اور تحقیقی مواد پر مشتمل ایک جدید ڈیجیٹل لائبریری"</p>
+
+ 	 </div>
+    <div class="hero-visual">
+     
+  <div class="features">
+
+    <div class="card digital">
+      <div>
+        <div class="icon">📚</div>
+        <h3>Digital Books</h3>
+        <p class="quote">“Books are the preserved voices of scholars.”</p>
+      </div>
+    </div>
+
+    <div class="card library">
+      <div>
+        <div class="icon">🏛️</div>
+        <h3>Digital Library</h3>
+        <p class="quote">“A library is a gateway to timeless knowledge.”</p>
+      </div>
+    </div>
+
+    <div class="card islamic">
+      <div>
+        <div class="icon">🕌</div>
+        <h3>Islamic Studies</h3>
+        <p class="quote">“Faith and knowledge walk hand in hand.”</p>
+      </div>
+    </div>
+
+    <div class="card research">
+      <div>
+        <div class="icon">📖</div>
+        <h3>Research & Manuscripts</h3>
+        <p class="quote">“Research is the bridge between past and future.”</p>
+      </div>
+    </div>
+
+  
+
+ <!-- RECENT UPDATES (HOME ONLY) -->
+<section class="recent">
+  <h3>Recent Updates</h3>
+
+  <div class="recent-list">
+    <div class="recent-item ebook">
+      <h4>Seerat Studies</h4>
+      <p>Syed Sulaiman Nadwi</p>
+      <a href="#" onclick="openTab('ebooks', this)">E-Book →</a>
+    </div>
+
+    <div class="recent-item article">
+      <h4>Islamic Education in Modern Times</h4>
+      <p>Talha Nemat Nadwi</p>
+      <a href="#" onclick="openTab('articles', this)">Article →</a>
+    </div>
+
+    <div class="recent-item research">
+      <h4>History & Thought</h4>
+      <p>Munzir Ahsan Gilani</p>
+      <a href="#">Research →</a>
+    </div>
+    
+    <div class="recent-item News">
+      <h4>News</h4>
+      <p>Munzir Ahsan Gilani</p>
+      <a href="#">Research →</a>
+    </div>
+
+  </div>
+</section>
+</section> <!-- ✅ Close HOME section here -->
+<!-- ===== EBOOKS SECTION ===== -->
+<section id="ebooks" class="tab-content">
+  <h2>E‑Book Collection</h2>
+
+  <!-- Author Tabs -->
+  <div class="ebook-tabs">
+    <button class="active" data-author="sulaiman">Syed Sulaiman Nadwi</button>
+    <button data-author="talha">Talha Nemat Nadwi</button>
+    <button data-author="munzir">Munzir Ahsan Gilani</button>
+    <button data-author="asthawan">Asthawan & Desna Writers</button>
+    <button data-author="manuscripts">Manuscripts</button>
+  </div>
+
+  <!-- Book Grids -->
+  <div class="ebook-grid author-sulaiman">
+    <div class="book">
+      <img src="images.jpg" alt="Rahmat-e-Alam">
+      <h4>Rahmat-e-Alam</h4>
+      <a href="Rahmat-i-Aalam-Urdu.pdf">Download</a>
+    </div>
+    <div class="book">
+      <img src="Aain-al-Isabah-Fi-Ma-Istadrakatho-Aisha-Ala-al-Sahaba_0000.jpg" alt="Aain-al-Isabah-Fi-Ma-Istadrakatho-Aisha-Ala-al-Sahaba">
+      <h4>Aain-al-Isabah-Fi-Ma-Istadrakatho-Aisha-Ala-al-Sahaba</h4>
+      <a href="Aain-al-Isabah-Fi-Ma-Istadrakatho-Aisha-Ala-al-Sahaba.pdf">Download</a>
+    </div>
+
+     <div class="book">
+      <img src="Ahl-al-Sunnah-wa-al-Jamaah_0000.jpg" alt="AAhl-al-Sunnah-wa-al-Jamaah">
+      <h4>Ahl-al-Sunnah-wa-al-Jamaah</h4>
+      <a href="Ahl-al-Sunnah-wa-al-Jamaah.pdf">Download</a>
+    </div>
+
+ <div class="book">
+      <img src="Allama-Syed-Sulaiman-Nadvi-ra-Aur-Hyderabad-Asifi_0000.jpg" alt="Allama-Syed-Sulaiman-Nadvi-ra-Aur-Hyderabad-Asifi">
+      <h4>Allama-Syed-Sulaiman-Nadvi-ra-Aur-Hyderabad-Asifi</h4>
+      <a href="Allama-Syed-Sulaiman-Nadvi-ra-Aur-Hyderabad-Asifi.pdf">Download</a>
+    </div>
+
+
+ <div class="book">
+      <img src="Allama-Syed-Sulaiman-Nadvi-ra-Kay-Chand-Nadir-Khutbaat-wa-Rasail-Ka-Majmoa_0000.jpg" alt="Allama-Syed-Sulaiman-Nadvi-ra-Kay-Chand-Nadir-Khutbaat-wa-Rasail-Ka-Majmoa">
+      <h4>Allama-Syed-Sulaiman-Nadvi-ra-Kay-Chand-Nadir-Khutbaat-wa-Rasail-Ka-Majmoa</h4>
+      <a href="Allama-Syed-Sulaiman-Nadvi-ra-Kay-Chand-Nadir-Khutbaat-wa-Rasail-Ka-Majmoa.pdf">Download</a>
+    </div>
+
+
+ <div class="book">
+      <img src="Allama-Syed-Sulaiman-Nadvi-ra-Ki-Tahqeeqat-i-Alfaaz-i-Urdu_0000.jpg" alt="Allama-Syed-Sulaiman-Nadvi-ra-Ki-Tahqeeqat-i-Alfaaz-i-Urdu">
+      <h4>Allama-Syed-Sulaiman-Nadvi-ra-Ki-Tahqeeqat-i-Alfaaz-i-Urdu</h4>
+      <a href="Allama-Syed-Sulaiman-Nadvi-ra-Ki-Tahqeeqat-i-Alfaaz-i-Urdu.pdf">Download</a>
+    </div>
+
+
+ <div class="book">
+      <img src="Allama-Syed-Sulaiman-Nadvi-ra-Shakhsiyyat-Aur-Adabi-Khidmaat_0000.jpg" alt="Allama-Syed-Sulaiman-Nadvi-ra-Shakhsiyyat-Aur-Adabi-Khidmaat">
+      <h4>Allama-Syed-Sulaiman-Nadvi-ra-Shakhsiyyat-Aur-Adabi-Khidmaat</h4>
+      <a href="Allama-Syed-Sulaiman-Nadvi-ra-Shakhsiyyat-Aur-Adabi-Khidmaat.pdf">Download</a>
+    </div>
+
+
+ <div class="book">
+      <img src="Allama-Syed-Sulaiman-Nadvi-ra-Shakhsiyyat-Aur-Adabi-Khidmaat_0000.jpg" alt="Allama-Syed-Sulaiman-Nadvi-ra-Shakhsiyyat-Aur-Adabi-Khidmaat">
+      <h4>Allama-Syed-Sulaiman-Nadvi-ra-Shakhsiyyat-Aur-Adabi-Khidmaat</h4>
+      <a href="Allama-Syed-Sulaiman-Nadvi-ra-Shakhsiyyat-Aur-Adabi-Khidmaat.pdf">Download</a>
+    </div>
+
+
+ <div class="book">
+      <img src="Ahl-al-Sunnah-wa-al-Jamaah_0000.jpg" alt="AAhl-al-Sunnah-wa-al-Jamaah">
+      <h4>Ahl-al-Sunnah-wa-al-Jamaah</h4>
+      <a href="Ahl-al-Sunnah-wa-al-Jamaah.pdf">Download</a>
+    </div>
+
+
+ <div class="book">
+      <img src="Ahl-al-Sunnah-wa-al-Jamaah_0000.jpg" alt="AAhl-al-Sunnah-wa-al-Jamaah">
+      <h4>Ahl-al-Sunnah-wa-al-Jamaah</h4>
+      <a href="Ahl-al-Sunnah-wa-al-Jamaah.pdf">Download</a>
+    </div>
+
+
+ <div class="book">
+      <img src="Ahl-al-Sunnah-wa-al-Jamaah_0000.jpg" alt="AAhl-al-Sunnah-wa-al-Jamaah">
+      <h4>Ahl-al-Sunnah-wa-al-Jamaah</h4>
+      <a href="Ahl-al-Sunnah-wa-al-Jamaah.pdf">Download</a>
+    </div>
+
+
+  </div>
+
+  <div class="ebook-grid author-talha" style="display:none;">
+    <div class="book">
+      <img src="Biharsharif.jpg" alt="Bihar Shareef">
+      <h4>Bihar Shareef</h4>
+      <a href="Bihar Shareef Book.pdf">Download</a>
+    </div>
+
+    <div class="book">
+      <img src="Riyasat.jpg" alt="وفیات مولانا ریاست علی ندوی ">
+      <h4>وفیات مولانا ریاست علی ندوی </h4>
+      <a href="وفیات مولانا ریاست علی ندوی .pdf">Download</a>
+    </div>
+
+    <div class="book">
+      <img src="Masood Alam.jpg" alt="مسعود عالم ندوی ">
+      <h4>مسعود عالم ندوی </h4>
+      <a href="مسعود عالم ندوی.pdf">Download</a>
+    </div>
+
+  <div class="book">
+      <img src="Syed Sulaiman Seminar.jpg" alt="سید سلیمان ندوی سیمنار کے مقالات ">
+      <h4>سید سلیمان ندوی سیمنار کے مقالات </h4>
+      <a href="سید سلیمان ندوی سیمنار کے مقالات.pdf">Download</a>
+    </div>
+
+    <div class="book">
+      <img src="tariq.jpg" alt="سید حسن عسکری طارق ">
+      <h4>سید حسن عسکری طارق </h4>
+      <a href="سید حسن عسکری طارق.pdf">Download</a>
+    </div>
+
+    <div class="book">
+      <img src="Shouq.jpg" alt="حضرت علامہ شوق نیمویؒ ">
+      <h4>حضرت علامہ شوق نیمویؒ </h4>
+      <a href="حضرت علامہ شوق نیمویؒ.pdf">Download</a>
+    </div>
+
+    <div class="book">
+      <img src="Haji.jpg" alt="حاجی معین الدین ندوی">
+      <h4>حاجی معین الدین ندوی </h4>
+      <a href="حاجی معین الدین ندوی-1.pdf">Download</a>
+    </div>
+
+    <div class="book">
+      <img src="Shibli.jpg" alt="العلامة شبلي النعماني">
+      <h4>العلامة شبلي النعماني </h4>
+      <a href="العلامة شبلي النعماني.pdf">Download</a>
+     </div>
+
+    <div class="book">
+      <img src="Arabi.jpg" alt="تاثیر في الشعر العربي">
+      <h4>تاثیر في الشعر العربي </h4>
+      <a href="تاثیر في الشعر العربي.pdf">Download</a>
+     </div>
+
+  </div>
+
+  <div class="ebook-grid author-munzir" style="display:none;">
+    <div class="book">
+      <img src="https://via.placeholder.com/150" alt="History & Thought">
+      <h4>History & Thought</h4>
+      <a href="#">Download</a>
+    </div>
+  </div>
+
+  <div class="ebook-grid author-asthawan" style="display:none;">
+    <div class="book">
+      <img src="https://via.placeholder.com/150" alt="Asthawan Writers Collection">
+      <h4>Asthawan Writers Collection</h4>
+      <a href="#">Download</a>
+    </div>
+  </div>
+
+  <div class="ebook-grid author-manuscripts" style="display:none;">
+    <div class="book">
+      <img src="https://via.placeholder.com/150" alt="Manuscript Collection">
+      <h4>Manuscript Collection</h4>
+      <a href="#">Download</a>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles" class="tab-content">
+  <div class="articles-layout">
+    <aside class="article-list">
+      <input type="search" placeholder="Search articles…">
+      <ul>
+        <li>Islamic Education in Modern Times</li>
+        <li>Role of Scholars in Society</li>
+      </ul>
+    </aside>
+    <div class="article-box">
+      <h2>Islamic Education in Modern Times</h2>
+      <p><strong>Author:</strong> Talha Nemat Nadwi</p>
+      <img src="article.jpg">
+      <p>Islamic education plays a vital role in shaping moral and intellectual values.</p>
+      <hr>
+      <div class="urdu">
+        <h2>عصرِ حاضر میں اسلامی تعلیم</h2>
+        <p>اسلامی تعلیم انسان کی فکری اور اخلاقی تربیت میں بنیادی کردار ادا کرتی ہے۔</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="tab-content">
+  <h2>Contact Us</h2>
+  <p>Email: info@ssnadwiacademy.org</p>
+  <p>Asthawan, Bihar, India</p>
+</section>
+
+</div>
+
+<footer>© 2026 S S Nadwi Academy. All Rights Reserved.</footer>
+
+</body>
+
+<!-- ===== EBOOKS JS (Place after </body>) ===== -->
+<script>
+function openTab(id, btn){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+
+  if(id === 'ebooks') showAuthorGrid(); // Reset first author
+}
+
+// Author Tabs
+const ebookTabs = document.querySelectorAll('.ebook-tabs button');
+const ebookGrids = document.querySelectorAll('.ebook-grid');
+
+function showAuthorGrid(index = 0){
+  ebookGrids.forEach((grid, i) => grid.style.display = (i === index ? 'grid' : 'none'));
+  ebookTabs.forEach((btn, i) => btn.classList.toggle('active', i === index));
+}
+
+ebookTabs.forEach((btn, i) => {
+  btn.addEventListener('click', () => showAuthorGrid(i));
+});
+
+// Show first author on page load
+showAuthorGrid();
+</script>
+</html>
